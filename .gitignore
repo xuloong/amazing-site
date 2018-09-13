@@ -1,25 +1,24 @@
-/target/
-!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.classpath
+*.project
+*.pyc
+*.pyo
+*.settings
+*/.git/*
+*/target
+*/target/*
+.calsspath
+.deployables
+.git
+.svn
+_pycache_
+_svn
+target
+target/*
+bin/*
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
+# IntelliJ project files
 .idea
-*.iws
 *.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+out
+gen
