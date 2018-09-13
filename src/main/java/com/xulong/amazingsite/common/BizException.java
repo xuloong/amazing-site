@@ -8,7 +8,7 @@ package com.xulong.amazingsite.common;
  */
 public class BizException extends Exception {
 
-    public static final Integer HttpStatus = 416;
+    public static Integer HttpStatus = 416;
 
     public BizException(String message) {
         super(message);

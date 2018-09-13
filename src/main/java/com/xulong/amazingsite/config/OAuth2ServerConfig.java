@@ -51,8 +51,8 @@ public class OAuth2ServerConfig {
                     .anonymous()
                     .and()
                     .authorizeRequests()
-                    .antMatchers("/users1/**").access("#oauth2.hasScope('read') and hasRole('ROLE_USER')")
-                    .antMatchers("/users1/**").authenticated()
+//                    .antMatchers("/users1/**").access("#oauth2.hasScope('read') and hasRole('ROLE_USER')")
+//                    .antMatchers("/users1/**").authenticated()
                     .antMatchers("/users/**").permitAll();
         }
     }

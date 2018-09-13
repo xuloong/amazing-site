@@ -2,7 +2,7 @@ package com.xulong.amazingsite.service.impl;
 
 import com.xulong.amazingsite.common.BizException;
 import com.xulong.amazingsite.dto.UserDto;
-import com.xulong.amazingsite.mapper.UserRepository;
+import com.xulong.amazingsite.repository.UserRepository;
 import com.xulong.amazingsite.model.User;
 import com.xulong.amazingsite.service.UserService;
 import org.springframework.beans.BeanUtils;

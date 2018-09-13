@@ -59,6 +59,8 @@ public class WebAspect {
         logger.info("RESPONSE : " + ret);
         logger.info("SPEND TIME : " + (System.currentTimeMillis() - startTime.get()));
 
+        startTime.remove();
+
         // 销毁线程局部变量（获取当前登录信息）
         SysContext.remove();
     }

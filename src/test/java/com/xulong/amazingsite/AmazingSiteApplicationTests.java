@@ -1,6 +1,6 @@
 package com.xulong.amazingsite;
 
-import com.xulong.amazingsite.mapper.UserRepository;
+import com.xulong.amazingsite.repository.UserRepository;
 import com.xulong.amazingsite.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;

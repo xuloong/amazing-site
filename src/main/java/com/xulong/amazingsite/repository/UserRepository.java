@@ -1,4 +1,4 @@
-package com.xulong.amazingsite.mapper;
+package com.xulong.amazingsite.repository;
 
 import com.xulong.amazingsite.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

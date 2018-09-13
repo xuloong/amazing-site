@@ -35,7 +35,7 @@ public class UserController {
     @ResponseBody
     @GetMapping(value = "/{id}")
     //@PreAuthorize("#oauth2.hasScope('write') and hasRole('ROLE_USER')")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<UserDto> getById(@NotNull @PathVariable("id") Long id) throws BizException {
 
         UserDto userDto = userService.findById(id);
