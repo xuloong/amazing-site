@@ -30,7 +30,7 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @ApiOperation(value = "留言详情API", httpMethod = "GET", notes = "根据ID查询留言详情", response = Message.class)
+    @ApiOperation(value = "查询留言详情API", httpMethod = "GET", notes = "根据ID查询留言详情", response = Message.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "留言ID", required = true, paramType = "path", dataType = "Long")
     })
@@ -44,7 +44,7 @@ public class MessageController {
 
     }
 
-    @ApiOperation(value = "留言列表API", httpMethod = "GET", notes = "查询留言列表", response = Page.class)
+    @ApiOperation(value = "查询留言列表API", httpMethod = "GET", notes = "查询留言列表", response = Page.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页数", required = false, paramType = "query", dataType = "Integer"),
             @ApiImplicitParam(name = "size", value = "每页条数", required = false, paramType = "query", dataType = "Integer")
@@ -61,7 +61,7 @@ public class MessageController {
 
     }
 
-    @ApiOperation(value = "留言新增API", httpMethod = "POST", notes = "新增留言", response = Message.class)
+    @ApiOperation(value = "新增留言API", httpMethod = "POST", notes = "新增留言", response = Message.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "message", value = "留言对象", required = true, paramType = "body", dataType = "Message")
     })
