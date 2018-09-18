@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping(value = "/my/info")
     //@PreAuthorize("#oauth2.hasScope('write') and hasRole('ROLE_USER')")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseEntity<UserDto> getById() {
+    public ResponseEntity<UserDto> getCurrentUser() {
 
         UserDto userDto = userService.getById(SysContext.getCurrentUser().getId());
         return ResponseEntity.status(HttpStatus.OK).body(userDto);
