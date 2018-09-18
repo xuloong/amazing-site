@@ -4,6 +4,7 @@ import com.xulong.amazingsite.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * UserRepository
@@ -11,9 +12,8 @@ import org.springframework.data.repository.query.Param;
  * @author xulong
  * @date 2018-07-10
  */
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findById(Long id);
 
     User findByName(String name);
 

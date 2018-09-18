@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface UserService {
 
-    UserDto findById(Long id);
+    UserDto getById(Long id);
 
     User findByUsername(String username);
 

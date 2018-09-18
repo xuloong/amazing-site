@@ -22,23 +22,20 @@ import javax.validation.constraints.NotNull;
  */
 @RestController
 @RequestMapping(value = "/users")
-@Api(tags = "User API", description = "用户API")
+@Api(tags = "User APIs", description = "用户接口")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "用户查询API", httpMethod = "GET", notes = "根据用户ID查询", response = UserDto.class)
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "用户ID", required = true, paramType = "path", dataType = "Long")
-    })
+    @ApiOperation(value = "当前用户详情API", httpMethod = "GET", notes = "查询当前用户详情", response = UserDto.class)
     @ResponseBody
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/my/info")
     //@PreAuthorize("#oauth2.hasScope('write') and hasRole('ROLE_USER')")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseEntity<UserDto> getById(@NotNull @PathVariable("id") Long id) throws BizException {
+    public ResponseEntity<UserDto> getById() {
 
-        UserDto userDto = userService.findById(id);
+        UserDto userDto = userService.getById(SysContext.getCurrentUser().getId());
         return ResponseEntity.status(HttpStatus.OK).body(userDto);
 
     }

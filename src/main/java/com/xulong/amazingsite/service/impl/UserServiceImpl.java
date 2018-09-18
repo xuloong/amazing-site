@@ -24,10 +24,10 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public UserDto findById(Long id) {
+    public UserDto getById(Long id) {
 
         UserDto userDto = new UserDto();
-        User user = userRepository.findById(id);
+        User user = userRepository.findOne(id);
 
         Assert.notNull(user, "用户不存在");
 
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void resetPassword(Long id, String oldPassword, String newPassword) throws BizException {
 
-        User user = userRepository.findById(id);
+        User user = userRepository.findOne(id);
 
         Assert.notNull(user, "用户不存在");
 
