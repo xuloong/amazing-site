@@ -1,5 +1,8 @@
 package com.xulong.amazingsite.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -12,61 +15,28 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "message")
+@Data
 public class Message {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @ApiModelProperty(value = "ID", dataType = "Long")
     private Long id;
 
     @Column(nullable = false)
+    @ApiModelProperty(value = "姓名", dataType = "String", example = "张三")
     private String name;
 
     @Column(nullable = false)
+    @ApiModelProperty(value = "电话", dataType = "String", example = "13888888888")
     private String tel;
 
     @Column(nullable = false)
+    @ApiModelProperty(value = "邮箱", dataType = "String", example = "zhangsan@qq.com")
     private String email;
 
     @Column(length = 5000)
+    @ApiModelProperty(value = "内容", dataType = "String", example = "Hello World")
     private String content;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
