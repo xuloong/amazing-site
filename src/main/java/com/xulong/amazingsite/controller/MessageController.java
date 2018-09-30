@@ -67,11 +67,10 @@ public class MessageController {
     })
     @ResponseBody
     @PostMapping(value = "")
-    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<Message> create(@RequestBody Message message) {
 
         message = messageService.save(message);
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+        return ResponseEntity.status(HttpStatus.CREATED).body(message);
 
     }
 }

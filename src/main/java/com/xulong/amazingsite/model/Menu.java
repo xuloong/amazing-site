@@ -1,5 +1,7 @@
 package com.xulong.amazingsite.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -12,6 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "menu")
+@Data
 public class Menu {
 
     @Id
@@ -33,51 +36,4 @@ public class Menu {
     @Column(nullable = false)
     private Integer orderByNum;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
-    public Long getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(Long articleId) {
-        this.articleId = articleId;
-    }
-
-    public Integer getOrderByNum() {
-        return orderByNum;
-    }
-
-    public void setOrderByNum(Integer orderByNum) {
-        this.orderByNum = orderByNum;
-    }
 }

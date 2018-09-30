@@ -1,5 +1,7 @@
 package com.xulong.amazingsite.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,6 +15,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "role")
+@Data
 public class Role implements Serializable{
 
     @Id
@@ -22,19 +25,4 @@ public class Role implements Serializable{
     @Column(nullable = false)
     private String roleName;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
 }

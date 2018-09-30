@@ -1,7 +1,17 @@
 package com.xulong.amazingsite.model;
 
+import com.xulong.amazingsite.enums.ArticleClassEnum;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -14,105 +24,48 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "article")
+@EntityListeners(AuditingEntityListener.class)
+@Data
 public class Article {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @ApiModelProperty(value = "ID", dataType = "Long")
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    @ApiModelProperty(value = "类别(1:新闻;2.产品;3.关于我们;4.招聘;5.下载)", dataType = "Integer", example = "1")
+    private ArticleClassEnum articleClass = ArticleClassEnum.NEWS;
 
     @Column(nullable = false)
+    @ApiModelProperty(value = "分类", dataType = "Long", example = "1")
+    private Long type;
+
+    @Column(nullable = false)
+    @ApiModelProperty(value = "标题", dataType = "String", example = "我是标题")
+    private String title;
+
+    @ApiModelProperty(value = "摘要", dataType = "String", example = "我是摘要")
     private String summary;
 
     @Column(nullable = false, columnDefinition = "TEXT")
+    @ApiModelProperty(value = "内容", dataType = "String", example = "我是内容")
     private String content;
 
     @Column(nullable = false)
-    private Integer status;
+    @ApiModelProperty(value = "状态(1:有效;0:无效)", dataType = "Integer", example = "1")
+    private Integer status = 1;
 
-    @Column(nullable = false)
+    @CreatedDate
     private Date createTime;
 
-    @Column(nullable = false)
+    @CreatedBy
     private Long creater;
 
-    @Column(nullable = false)
+    @LastModifiedDate
     private Date modifiedTime;
 
-    @Column(nullable = false)
+    @LastModifiedBy
     private Long modifier;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Long getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Long creater) {
-        this.creater = creater;
-    }
-
-    public Date getModifiedTime() {
-        return modifiedTime;
-    }
-
-    public void setModifiedTime(Date modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public Long getModifier() {
-        return modifier;
-    }
-
-    public void setModifier(Long modifier) {
-        this.modifier = modifier;
-    }
 }

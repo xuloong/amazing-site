@@ -1,5 +1,7 @@
 package com.xulong.amazingsite;
 
+import com.xulong.amazingsite.model.Article;
+import com.xulong.amazingsite.repository.ArticleRepository;
 import com.xulong.amazingsite.repository.UserRepository;
 import com.xulong.amazingsite.model.User;
 import org.junit.Test;
@@ -15,11 +17,13 @@ public class AmazingSiteApplicationTests {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ArticleRepository articleRepository;
+
     @Test
     public void test() throws Exception {
 
-        userRepository.save(new User("张三", "zhangsan", "123"));
-        userRepository.save(new User("李四", "lisi", "123"));
+        userRepository.save(new User("系统管理员", "admin", "123456"));
 
         User user = userRepository.findByName("张三");
         user.setName("张三三");

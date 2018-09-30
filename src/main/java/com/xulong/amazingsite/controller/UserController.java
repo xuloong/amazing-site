@@ -12,8 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * UserController
  *
@@ -28,7 +26,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "当前用户详情API", httpMethod = "GET", notes = "查询当前用户详情", response = UserDto.class)
+    @ApiOperation(value = "查询当前用户详情API", httpMethod = "GET", notes = "查询当前用户详情", response = UserDto.class)
     @ResponseBody
     @GetMapping(value = "/my/info")
     //@PreAuthorize("#oauth2.hasScope('write') and hasRole('ROLE_USER')")

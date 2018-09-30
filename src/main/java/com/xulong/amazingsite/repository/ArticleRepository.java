@@ -1,15 +1,15 @@
 package com.xulong.amazingsite.repository;
 
-import com.xulong.amazingsite.model.Role;
+import com.xulong.amazingsite.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * RoleRepository
+ * ArticleRepository
  *
  * @author xulong
- * @date 2018-07-10
+ * @date 2018/9/18
  */
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 }
